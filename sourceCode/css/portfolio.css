@@ -1,0 +1,272 @@
+*{margin: 0;padding: 0;}
+ul,ol{list-style: none;}
+a{color: inherit;text-decoration: inherit;}
+h1,h2,h3,h4,h5,h6{
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.container{
+    width: 1600px;
+    margin: 0 auto;
+}
+body{
+    background: #fffef1;
+}
+/* font */
+@font-face {
+    font-family: "pompadour";
+    src: url(../Source/font/01_APompadourSample.otf);
+}
+@font-face {
+    font-family: "60sStripe";
+    src: url(../Source/font/60sSTRIPE.ttf);
+}
+@font-face {
+    font-family: "bernard";
+    src: url(../Source/font/BERNHC.TTF);
+}
+@font-face {
+    font-family: "broadway";
+    src: url(../Source/font/BROADW.TTF);
+}
+@font-face {
+    font-family: "chigok";
+    src: url(../Source/font/Chilgok_Kaj.ttf);
+}
+
+
+
+/* intro페이지 */
+.introAni{
+    width: 100%;
+    height: 100vh;
+    background: url(../Source/img/pagesource/intro/introbgimg.png)no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1000;
+}
+.introLogo{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    animation: opacity 5s ease 0s forwards;
+}
+#introSVG{
+    opacity: 0.4;
+}
+#introSVG.on {
+    opacity: 1;
+    animation: opacity1 3s ease 0s infinite;
+}
+#introSVG .cls-1{
+    fill:#dc143c;
+    
+}
+#introSVG .cls-2{fill:#f7931e;}
+#introSVG .cls-3{opacity:0.9;mix-blend-mode:screen;
+fill: none;}
+#introSVG.on .cls-1{
+    animation:neon 2s ease 0s infinite alternate;
+}
+#introSVG.on .cls-2{
+    animation:neon2 2s ease 0s infinite alternate;
+}
+
+@keyframes neon {
+    0%{
+        filter: drop-shadow(0px 0px 5px #db4160)drop-shadow(0px 0px 8.5px #db4160)
+    }
+    100%{
+        filter: drop-shadow(0px 0px 10px #db4160)drop-shadow(0px 0px 13px #db4160)
+    }
+}
+@keyframes neon2 {
+    0%{
+        filter: drop-shadow(0px 0px 5px #f7931e)drop-shadow(0px 0px 8.5px #f7931e)
+    }
+    100%{
+        filter: drop-shadow(0px 0px 10px #f7931e)drop-shadow(0px 0px 13px #f7931e)
+    }
+}
+@keyframes opacity1{
+    0%{opacity: 1;}
+    50%{opacity: 1;}
+    60%{opacity: 0.6;}
+    70%{   opacity: 1;}
+    80%{opacity: 0.6;}
+    90%{opacity: 1;}
+    100%{opacity: 1;}
+}
+@keyframes opacity{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.btn{
+    color: #dc143c;
+    transition: all 1s ease 0s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-family: "bernard";
+    border: solid  3px #dc143c;
+    padding: 10px;
+    width: 150px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.btn:active{
+    background: #dc143c;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+.intro{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;   
+}
+#introBg{
+    filter: brightness(0.85);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.logos{
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+.logos>svg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.intro>li>img{
+    object-fit: contain;
+}
+#introimage2{
+    position: absolute;
+    bottom: -13%;
+    width: 35%;
+    height: 66%;
+    left: -12%;
+    transform: rotate(13deg);
+    z-index: 9;
+}
+#introimage1{
+    position: absolute;
+    bottom: -1%;
+    width: 23%;
+    height: 40%;
+    left: 33%;
+    transform: rotate(-10deg);
+    z-index: 10;
+}
+#introimage3{
+    position: absolute;
+    top: 3%;
+    width: 70%;
+    height: 70%;
+    left: -17%;
+    z-index: 11;
+    transform: translateX(-100%);
+    transition: all 1s ease 0s;
+}
+#introimage4{
+    position: absolute;
+    bottom: 8%;
+    width: 30%;
+    height: 30%;
+    right:3%;
+}
+.carmove{
+    position: absolute;
+    width: 500px;
+    height: 180px;
+    animation: carMove 4s linear 0s infinite;
+    left: 0;
+    bottom: 4%;
+    z-index: 1;
+}
+
+.wheelL{
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    top: 77px;
+    left: 86px;
+    animation: wheelMove 1s linear 0s infinite forwards;
+}
+.wheelR {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 76px;
+    right: 73px;
+    animation: wheelMove 1s linear 0s infinite forwards;
+}
+.frame{
+    position: absolute;
+
+}
+@keyframes wheelMove{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+@keyframes carMove{
+    0%{transform: translateX(-200%);}
+    100%{transform: translateX(550%);}
+}
+.introTitle{
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    color: white;
+}
+.introTitle>h1:nth-of-type(1){
+    font-family: "bernard";
+    font-size: 15rem;
+    color: rgb(252, 220, 225);
+
+}
+.introTitle>h1:nth-of-type(2){
+    font-family: "60sStripe";
+    font-size: 15rem;
+    color: rgb(252, 220, 225);
+    position: absolute;
+    top: 35%;
+    left: 18%;
+}
+/* .introTitle>h1:nth-of-type(3){
+    font-family: "bernard";
+    font-size: 15rem;
+    color: rgb(252, 220, 225);
+    position: absolute;
+    top: 35%;
+    left: 18%;
+} */
+.profile{
+    display: flex;
+}
+.profile h2{
+    font-family: "pompadour";
+    font-size: 60px;
+}
+.informationBox{
+    background: url(../Source/img/pagesource/profile/table.svg)no-repeat;
+    width: 800px;
+    height: 400px;
+}

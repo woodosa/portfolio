@@ -8,6 +8,7 @@ h1,h2,h3,h4,h5,h6{
 
 html{
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
 }
 .container{
     width: 1600px;
@@ -37,7 +38,10 @@ body{
     font-family: "chigok";
     src: url(../Source/font/Chilgok_Kaj.ttf);
 }
-
+@font-face {
+    font-family: "century";
+    src: url(../Source/font/CENTURY.TTF);
+}
 
 
 /* intro페이지 */
@@ -147,7 +151,7 @@ fill: none;}
     transform: translateX(-50%);
     width: 100px;
     height: 100px;
-    z-index: 10;
+    z-index: 100;
 }
 .logos>svg{
     width: 100%;
@@ -258,15 +262,427 @@ fill: none;}
     top: 35%;
     left: 18%;
 } */
+
+
+
+/* profile 페이지 */
+
 .profile{
+    position: relative;
     display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.personalPicture{
+    width: 100%;
+    height: 100%;
+}
+.personalPicture>img{
+    height: 100%;
+    object-fit: cover;
 }
 .profile h2{
     font-family: "pompadour";
     font-size: 60px;
 }
+.profileTxt{
+    margin: auto 0;
+}
 .informationBox{
     background: url(../Source/img/pagesource/profile/table.svg)no-repeat;
-    width: 800px;
-    height: 400px;
+    width: 740px;
+    height: 380px;
+    padding: 50px;
+}
+.infomation>h2{
+    margin-bottom: 30px;
+}
+.informationBox>dl:nth-of-type(1){
+    margin-top: 0;
+}
+.informationBox>dl{
+    display: flex;
+    margin-top: 15px;
+}
+.informationBox dt{
+    font-family: "century";
+    font-size: 35px;
+    text-transform: uppercase;
+}
+.informationBox>dl>dd{
+    margin-left: 150px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+.informationBox>dl:nth-of-type(2)>dd{
+    font-size:28px ;
+    margin-left: 35px;
+}
+.informationBox>dl:nth-of-type(1)>dd{
+    font-size:28px ;
+    margin-left: 107px;
+}
+.informationBox>dl:nth-of-type(5)>dd{
+    font-size:28px ;
+    margin-left: 83px;
+}
+.profileTxt>img{
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    width: 440px;
+    height: 240px;
+    object-fit: contain;
+}
+.bottomBox{
+    display: flex;
+}
+.education{
+   margin-right: 170px;
+}
+.bottomBox ul{
+    padding: 30px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.bottomBox ul>li{
+    margin-top: 20px;
+}
+
+/* skill */
+.skill{
+    height: 100vh;
+}
+.skill>figure{
+    width: 500px;
+    height: 250px;
+    margin: 50px auto;
+}
+.skillContent{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+.skillContent>div{
+    padding: 30px;
+    display: flex;
+    box-sizing: border-box;
+    width: 600px;
+    height: 600px;
+    flex-direction: column;
+    justify-content: center;
+}
+.skillContent>div>h2{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: "broadway";
+    font-size: 45px;
+}
+.designSkill{
+    box-shadow: 20px -20px 0px #8e3248;
+    background: #f77c96;
+    position: relative;
+}
+.designSkill svg{
+    width: 220px;
+    height: 220px;
+}
+.designSkill>ul{
+    display: flex;
+    align-items: center;
+}
+.designSkill>ul>li{
+    flex: 1;
+}
+.codingSkill{
+    box-shadow: 20px -20px 0px #1b333d;
+    background: #45939e;
+    position: relative;
+}
+.codingSkill>ul{
+    display: flex;
+}
+.codingSkill>ul>li{
+    flex: 1;
+}
+.skill ul>li>h3{
+    font-size: 30px;
+    font-family: "broadway";
+    text-align: center;
+    margin-bottom: 15px;
+}
+.codingTxtBox{
+    color: #eee;
+    margin: 0 auto;
+    width: 125px;
+    height: 200px;
+    padding: 15px;
+    font-size: 15px;
+    background: #67819d;
+}
+.codingTxtBox>p{
+    margin: auto 0;
+}
+.designTxtBox{
+    color: #eee;
+    margin: 0 auto;
+    width: 220px;
+    height: 150px;
+    padding: 15px;
+    font-size: 15px;
+    background: #67819d;
+}
+.designTxtBox>p{
+    margin: auto 0;
+}
+.designSkill>ul>li>figure{
+    position: relative;
+}
+.designSkill>ul>li>figure{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.designSkill>ul>li>figure>span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.codingSkill>ul>li>figure>span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+.codingSkill>ul>li>figure{
+    position: relative;
+}
+.codingSkill>ul>li>figure{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* design 페이지 */
+
+.design{
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+#checkerboard{
+    width: 25%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    object-fit: cover;
+}
+#designlogo{
+    position: absolute;
+    width: 448px;
+    height: 184px;
+    top: 120px;
+    left: 180px;
+    z-index: 11;
+}
+#designImage1{
+    position: absolute;
+    bottom: 8%;
+    left: 20%;
+    transform: rotate(20deg);
+}
+.popArtMove{
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    z-index: 12;
+}
+.popArtTrain{
+    display: flex;
+    height: 180px;
+    animation: move1 10s linear 0s infinite;
+}
+.popArtTrain2{
+    display: flex;
+    height: 180px;
+    animation: move2 10s linear 5s infinite;
+}
+.popArtTrain img{
+    height: 100%;
+    object-fit: contain;
+}
+.popArtMove li{
+    margin-right: 10px;
+}
+.popArtTrain2 img{
+    height: 100%;
+    object-fit: contain;
+}
+@keyframes move1 {
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(-100%)}
+}
+@keyframes move2 {
+    0%{transform: translateX(0%);}
+    100%{transform: translateX(-200%)}
+}
+.popupList{
+    width: 460px;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background: #22b573;
+}
+.popupList img{
+    width: 410px;
+    height: 410px;
+    object-fit: contain;
+}
+.designIntroTxt{
+    border: 6px double black;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 254, 254, 0.934);
+    top: 350px;
+    left: 100px;
+    z-index: 20;
+    padding: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 35px;
+    font-weight: 700;
+}
+
+/* popup */
+.popup{
+    overflow: hidden;
+    background: orange;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.popup>h1{
+    width: 700px;
+    height: 225px;
+    background: #22b573;
+    color: #dc143c;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-35deg);
+    top: 50px;
+    left: -50px;
+    z-index: 12;
+    font-size: 4.2rem;
+    font-weight: bold;
+}
+.popup>h1>span{
+    margin-left: 30px;
+    font-weight: 200;
+}
+.mokupSlide{
+    position: absolute;
+    width: 1600px;
+    height: 970px;
+}
+#popupbg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    left: -15%; 
+    z-index: 10;
+}
+.mokupSlide_station{
+    overflow: hidden;
+    position: absolute;
+    width: 395px;
+    z-index: -1;
+    left: 450px;
+    margin-top: 100px;
+    top: 20px;
+    z-index: 2;
+}
+.mokupSlide_train{
+    width: 700%;
+    display: flex;
+    /* margin-left: -120px; */
+    transition: all 2s ease 0s;
+}
+.mokupSlide_train img{
+    width:395px;
+    height: 395px;
+    object-fit: contain;
+    filter: sepia(0.4);
+}
+.popupInfo{
+    padding: 30px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 200px ;
+    right: 50%;
+    transform: translateX(150%);
+    /* border: 1px solid red; */
+    width: 500px;
+    height: 500px;
+    background-color: #22b573;
+}
+.popupInfo>ul>li{
+    opacity: 0;
+}
+.popupInfo>ul>li.on{
+    opacity: 1;
+}
+.infoTop{
+    display: flex;
+}
+
+.popupInfo img{
+        width: 135px;
+        height: 135px;
+}
+.popupInfo>ul>li{
+    position: absolute;
+}
+.infoTop>figure{
+    width: 150px;
+    height: 150px;
+    background: #dc143c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 440px;
+}
+.navigation>span{
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: #dc143c;
+}
+.colorBox{
+    border: 1px solid black;
+    
 }

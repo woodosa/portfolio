@@ -44,15 +44,11 @@ $(document).ready(function(){
             })  
             // console.log("TT")  
         }
-
-        // $(".moveUp,.moveLeft").each(function () {
-        
-        //     if ( winTop >= $(".intro").offset().top) {
-        //         $(this).addClass("on")
-        //     } else {
-        //         $(this).removeClass("on")
-        //     }
-        // })
+        let rcHeight=$(".redesignContent").offset().top
+        // console.log(winTop,rcHeight )
+        if(winTop >= rcHeight+winTop ){
+            $(".redesignContent").addClass("on")
+        }
     })
 
 
@@ -66,17 +62,24 @@ $(document).ready(function(){
     //     console.log(imgCount)
     // },1000)
 
-
+    let state = false;
     $(".mainContent>div").on("wheel DOMMouseScroll",function(event){
         let winheight=$(window).height()
         winst=winheight
-        console.log(winst)
+        // console.log(winst)
         let E = event.originalEvent
        let delta = 0;
        if(E.detail){
         delta = E.detail * -40
        }else{
         delta = E.wheelDelta
+       }
+
+       if($(this).attr("id")=="banner"){
+        if(state == false){
+            return
+        }
+            
        }
        
        if(delta<0){
@@ -95,31 +98,39 @@ $(document).ready(function(){
 
 
     //skill
+    let state2 = false;
     $(window).scroll(function(){
         let winTop=$(window).scrollTop()
         if(winTop >= $(".skill").offset().top && winTop <= winTop + $(".skill").height() ){
             $(".skill").addClass("on")
+            
+        }else{
         }
-        if($(".skill").hasClass("on")==true){
-            $(".skillContent ul>li>figure").each(function(){
-                let list = $(this)
-                let percent = $(this).find(".per").text()
-                let count = 0
-                let circle = $(this).find(".circle")
-                let circleLength= circle.get(0).getTotalLength()
-                
-                let timer = setInterval(function(){
-                    count++
-                    if(count>=percent){
-                        count=percent
-                        clearInterval(timer)
-                    }
-                    list.find(".per").text(count+"%")
-                    circle.css("stroke-dashoffset",circleLength-(circleLength*(count/100)))
-                },10)
-            })
+        if($(".skill").hasClass("on")==true && state2 == false){
+            state2 = skillPercent()
         }
     })
+
+    function skillPercent(){
+        $(".skillContent ul>li>figure").each(function(){
+            let list = $(this)
+            let percent = $(this).find(".per").text()
+            let count = 0
+            let circle = $(this).find(".circle")
+            let circleLength= circle.get(0).getTotalLength()
+            
+            let timer = setInterval(function(){
+                count++
+                if(count>=percent){
+                    count=percent
+                    clearInterval(timer)
+                }
+                list.find(".per").text(count+"%")
+                circle.css("stroke-dashoffset",circleLength-(circleLength*(count/100)))
+            },10)
+        })
+        return true
+    }
 
 
 
@@ -162,6 +173,23 @@ $(document).ready(function(){
         $(this).children(".colorBox").css("background-color",colorName)
     })
 
+
+    //마우스무브
+    $(document).mousemove(function(event){
+        
+        let posX = event.clientX
+        let posY = event.clientY
+        // console.log(posX,posY)
+        $(".cursor").css("left",(posX)+"px").css("top",(posY)+"px")
+    })
+    $(".popup").mouseover(function(){
+        $(".cursor").addClass("on")
+    })
+    $(".popup").mouseout(function(){
+        $(".cursor").removeClass("on")
+    })
+
+
        // banner 디자인 
     let result="";
     
@@ -169,7 +197,9 @@ $(document).ready(function(){
         result+=`<li></li>`
         $(".wrap").html(result)
     }
-
+    // $(".bannerTxt>span").mouseover(function(){
+    //     $(".movingStation>.station").css("z-index","100")
+    // })
 
     function bannerRotate(tag,){
         if(tag.hasClass("on")){

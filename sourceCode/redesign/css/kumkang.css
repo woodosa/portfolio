@@ -477,7 +477,6 @@ header.on{
 } */
 
 .main_bespoke>div>video {
-    position: absolute;
     width: 100%;
     height: 100vh;
     object-fit: cover;
@@ -497,6 +496,7 @@ header.on{
    /* padding-top: 770px; */
    /* bottom: 0;
    left: 0; */
+   position: relative;
    padding-top:20vh;
    font-size: 140px;
    color: #D7C08E;
@@ -507,6 +507,7 @@ header.on{
    /* left: 50%;
    transform: translateX(-50%); */
    /* top: -20%; */
+   z-index: 2;
 }
 .main_bespoke h1+p{
     margin-left:50%;

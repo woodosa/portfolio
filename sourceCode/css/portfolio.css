@@ -793,7 +793,7 @@ fill: none;}
 .infoTop>figure{
     width: 150px;
     height: 150px;
-    background: #dc143c;
+    background: rgba(65, 65, 65, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -884,6 +884,22 @@ fill: none;}
     opacity: 1;
 }
 
+.cursor.on{
+    /* border: 1px solid red; */
+    background: url(../Source/img/pagesource/popup/mouse.svg)no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    pointer-events:none;
+    z-index: 2000;
+}
+.popup{
+    cursor: none;
+}
 
 /* banner */
 .banner{
@@ -917,19 +933,21 @@ fill: none;}
 }
 .fixedEffect{
     height: 6000px;
-    
+
 }
 .movingStation{
     width: 100%;
     height: 100vh;
 }
 .banner .station{
+    pointer-events: none;
     width: 100%;
     height: 800px;
     overflow: hidden;
 }
 .banner .train{
     /* margin-top: 10%; */
+    pointer-events: none;
     padding-top: 15%;
     width: 400%;
     display: flex;
@@ -983,6 +1001,7 @@ fill: none;}
 }
 
 .Card{
+    background: #fffbf2;
     overflow: hidden;
     top: 0;
     left: 0;
@@ -1015,6 +1034,65 @@ fill: none;}
     display: none;
     /* filter: grayscale(0.6); */
 }
+.bannerTxtBox{
+    width: 450px;
+    height: 450px;
+    bottom: 0;
+    right: 10%;
+    position: absolute;
+    overflow: hidden;
+}
+.bannerTxtBox>ul>li>img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+
+}
+.bannerTxtTrain{
+    transition: all 1s ease 0.5s;
+    width: 100%;
+    height: 500%;
+    overflow: hidden;
+    /* transform: translateY(-40%); */
+}
+.bannerTxtTrain>li{
+    background: url(../Source/img/pagesource/banner/paper.jpg)no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 450px;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: "chigok";
+    font-size: 22px;
+    font-weight: 600;
+}
+.bannerTxtTrain p{
+    margin-bottom: 20px;
+}
+.bannerTxt>h1{
+    display: inline-block;
+    font-size: 2.5rem;
+    border-bottom: 3px solid rgb(50, 50, 50);
+    margin-bottom: 50px;
+}
+.bannerTxtTrain>li:nth-of-type(1){
+    opacity: 0;
+}
+/* .bannerTxtBox.on{
+    animation: banner 1.2s linear 0s;
+}
+@keyframes banner {
+    0%{transform: translateY(0px);}
+    50%{transform: translateY(100%);}
+    100%{transform: translateY(0px);}
+    
+} */
+
 
 
 /* redesign 페이지 */
@@ -1097,26 +1175,48 @@ fill: none;}
 #pageView{
     transition: all 10s linear 0s;
 }
-.contentTxt{
-    background:  #fffef1;
+.txtbg{
     position: absolute;
-    right: 250px;
-    top: 180px;
+    right: 150px;
+    top: 150px;
     z-index: 15;
-    width: 600px;
-    height: 700px;
+    width: 700px;
+    height: 800px;
     padding: 30px;
     box-sizing: border-box;
-    border: 6px ridge black;
+    /* border: 6px ridge black; */
+    /* overflow: hidden; */
+}
+.txtbg>img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 10;
+}
+.contentTxt{
+    background:  #fffef1;
+    padding: 50px;
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    left: 100px;
+    top: 50PX;
+    /* box-sizing: border-box;
+    /* overflow: hidden;     */
 }
 .contentTxt>h3{
     font-weight: 600;
-    font-size: 2.8rem;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 150px;
+    margin-bottom: 80px;
 }
 .contentTxt>p{
+    line-height: 1.5rem;
     padding: 0 15px;
+    font-size: 15px;
 }
 .redesignBtn{
     margin-top: 100px;
@@ -1126,7 +1226,21 @@ fill: none;}
 .redesignBtn>li{
     width: 120px ;
     height: 60px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    border-radius: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #294433;
+    color: #d7c08e;
+    transition: all 0.6s ease 0s;
+    z-index: 20;
+}
+.redesignBtn>li:hover{
+    background:#5f9773 ;
+    color: #2b261d;
 }
 #designBG{
     position: absolute;
@@ -1138,6 +1252,7 @@ fill: none;}
     object-fit: contain;
 
 }
+
 
 
 

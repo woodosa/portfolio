@@ -46,7 +46,86 @@ body{
     font-family: "simplex";
     src: url(../Source/font/simplex_.ttf);
 }
+@font-face {
+    font-family: "caprasimo";
+    src: url(../Source/font/Caprasimo-Regular.ttf);
+}
 
+.headNavigation{
+    position: fixed;
+    width: 0%;
+    /* opacity: 0%; */
+    pointer-events: none;
+    height: 100vh;
+    background: #fffef1;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    transition: width 1s ease 0s;
+    overflow: hidden;
+}
+.headNavigation.on{
+    width: 16.5%;
+    opacity: 1;
+    pointer-events: auto;
+    border-right: 5px dashed black;
+}
+.esc{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.esc::after{
+    content: "\00d7";
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.headNavigation>ul{
+    text-transform: capitalize;
+    font-family: "pompadour";
+    font-size: 2rem;
+    /* border: 1px solid red; */
+    padding-left: 30px;
+}
+.headNavigation>ul>li{
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+.headNavigation>ul>li>a{
+    transition: all 0.5s ease 0s;
+}
+.headNavigation>ul>li::before{
+    content: "";
+    border: 2px solid black ;
+    display: block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    margin-right: 10px;
+    transition: all 0.5s ease 0s;
+
+}
+.headNavigation>ul>li:hover{
+    color: orange;
+}
+.headNavigation>ul>li:hover:before{
+    border-color: orange;
+    opacity: 1;
+    animation: rotateAnimate 0.7s ease 0s;
+}
+@keyframes rotateAnimate {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(135deg);}
+}
 /* .mainContent{
     width: 100%;
 } */
@@ -161,11 +240,16 @@ fill: none;}
 .logos{
     position: fixed;
     top: 2%;
-    left: 1%;
+    left: 3%;
     /* transform: translateX(-50%); */
     width: 100px;
     height: 100px;
     z-index: 100;
+    cursor: pointer;
+    /* animation: logoMove 2s linear 0s infinite alternate; */
+}
+.logos.on{
+    animation: none;
 }
 .logos>svg{
     width: 100%;
@@ -352,8 +436,8 @@ fill: none;}
 }
 .profileTxt>img{
     position: absolute;
-    top: 100px;
-    right: 0px;
+    top: 30px;
+    right: -100px;
     width: 440px;
     height: 240px;
     object-fit: contain;
@@ -485,14 +569,16 @@ fill: none;}
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #241B28;
+    font-family: "broadway";
 }
 .codingSkill>ul>li>figure>span{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #241B28;
+    font-family: "broadway";
 }
 .codingSkill>ul>li>figure{
     position: relative;
@@ -743,10 +829,13 @@ fill: none;}
     display: flex;
 }
 .colorBox{
-    border: 1px solid black;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     display: block;
+    margin-bottom: 10px;
+}
+#grad{
+    background: linear-gradient(180deg,#1646b3,#e88c77);
 }
 .infoTop>.color>h4{
     text-transform: uppercase;
@@ -800,28 +889,106 @@ fill: none;}
 .banner{
     position: relative;
     width: 100%;
-    height: 100vh;
+    z-index: 50;
+    overflow: hidden;
 }
 
-.banner>h2{
+.banner h2{
     color: #ffe732;
     text-transform: uppercase;
-    text-align: center;
+    /* text-align: center; */
     /* margin-top: 50px; */
-    font-size: 5rem;
+    font-size: 8rem;
     position: absolute;
     left: 10%;
     top: 5%;
     pointer-events: none;
+    font-family: "caprasimo";
 
+    z-index: 3;
 }
+.banner>.movingStation>img{
+    width: 384px;
+    height: 540px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+.fixedEffect{
+    height: 6000px;
+    
+}
+.movingStation{
+    width: 100%;
+    height: 100vh;
+}
+.banner .station{
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
+.banner .train{
+    /* margin-top: 10%; */
+    padding-top: 15%;
+    width: 400%;
+    display: flex;
+    transition: all 1.2s ease 0s;
+    height: 400px;
+}
+.banner .train>li{
+    flex: 1;
+    position: relative;
+    margin-right: 350px;
+    margin-left: 350px;
+    background: #fffbf2;
+    padding: left 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .train>li>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(75, 75, 75);
+    width: 85%;
+    height: 90%;
+}
+.banner .train>li:nth-of-type(1){
+    background: none;
+}
+.banner .train>li:nth-of-type(1)>div{
+    background: none;
+}
+.banner .train>li img{
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.banner .train>li .txt{
+    position: absolute;
+    top: 50px;
+    width: 25%;
+    left: 150px;
+}
+.banner .train>li .txt>h3{
+    /* color: orange; */
+    font-size: 60px;
+    margin-bottom: 50px;
+}
+
 .Card{
     overflow: hidden;
     top: 0;
     left: 0;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 .wrap{
     width: 100%;
@@ -985,7 +1152,7 @@ fill: none;}
 .moveUp.on{
     opacity: 1;
     transform: translateY(-0px);
-    transition: transform 1s ease 0.5s;
+    transition: transform 1s ease 0.8s;
 }
 .moveLeft{
     opacity: 0.1;
@@ -994,5 +1161,120 @@ fill: none;}
 .moveLeft.on{
     opacity: 1;
     transform: translateX(0px);
-    transition: transform 1s ease 1s;
+    transition: transform 1s ease 1.15s;
+}
+#introimage3.moveLeft.on{
+    opacity: 1;
+    transform: translateX(0px);
+    transition: transform 1s ease 1.8s;
+}
+.circle{
+    stroke-dasharray: 188;
+    stroke-dashoffset: 188;
+}
+.skillContent figure svg{ 
+    transform: rotate(-90deg);
+}
+.moveDown{
+    opacity: 0.1;
+    transform: translateY(-150px);
+    transition: all 1s ease 0.5s;
+}
+.moveDown.on{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.cameraDown{
+    opacity: 0.1;
+    transform: translateY(-300px);
+    transition: all 2s ease 0.5s;
+}
+.cameraDown.on{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+/* end 페이지 */
+.endContent{
+    height: 1080px;
+    display: flex;
+    /* background: blue; */
+}
+.Lpimage{
+    /* border: 1px solid red; */
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    left: 30px;
+    top: 28px;
+    /* border: 1px solid red; */
+}
+.Lp{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: rotate1 500s linear 0s infinite forwards;
+}
+
+.LpRotate{
+    width: 1250px;
+    height: 970px;
+    position: relative;
+    /* border: 1px solid blue; */
+    right: 0%;
+    top: -150px;
+}
+.pin{
+    position: absolute;
+    /* border: 10px solid green; */
+    width: 700px;
+    height: 700px;
+    top: -60px;
+    right: -300px;
+    transform: rotate(-25deg);
+    animation: rotate2 1.5s ease 0s infinite forwards;
+}
+@keyframes rotate1 {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(36000deg);}
+}
+@keyframes rotate2 {
+    0%{transform: rotate(-15deg);}
+    50%{transform: rotate(-20deg);}
+    100%{transform: rotate(-15deg);}
+}
+.endTxtBox{
+    font-size: 8rem;
+    z-index: 50;
+    font-family: "caprasimo";
+    margin-right: 250px;
+    color: #397eee;
+    /* border: 1px solid blue; */
+    height: 700px;
+    margin-top: 150px;
+}
+@font-face{
+    font-family: "caprasimo";
+    src: url(./Caprasimo/Caprasimo-Regular.ttf);
+}
+.end{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: crimson;
+}
+.endTxtBox>h1:nth-of-type(1){
+    margin-bottom: 50px;
+}
+.endTxtBox>h1:nth-of-type(2){
+    font-size: 6.5rem;
+    margin-bottom: 50px;
+    margin-left: 150px;
+}
+
+@keyframes logoMove {
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(-10deg);}
+    100%{transform: rotate(10deg);}
+
 }

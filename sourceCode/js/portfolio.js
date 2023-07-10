@@ -12,13 +12,23 @@ $(document).ready(function(){
         $("#introSVG").addClass("on")
         setTimeout(function(){
             $(".introAni").addClass("on")
-            $(".moveUp,.moveLeft").each(function(){
+            $(".moveUp,.moveLeft,.moveDown").each(function(){
                 $(this).addClass("on")
             })  
         },3000)
         
 
     })
+
+    // 로고클릭
+    $(".logos").click(function(){
+        $(".headNavigation").addClass("on")
+        $(".logos").addClass("on")
+    })
+    $(".esc").click(function(){
+        $(".headNavigation").removeClass("on")
+    })
+
 
     $(".introAni").on("wheel DOMMouseScroll",function(e){
         e.preventDefault()
@@ -29,7 +39,7 @@ $(document).ready(function(){
         let winTop=$(window).scrollTop()
         // console.log(winTop,$(".intro").offset().top)
         if(winTop >= $(".intro").offset().top){
-            $(".moveUp,.moveLeft").each(function(){
+            $(".moveUp,.moveLeft,.moveDown").each(function(){
                 $(this).addClass("on")
             })  
             // console.log("TT")  
@@ -46,13 +56,20 @@ $(document).ready(function(){
     })
 
 
-
-
+    
+    
+    // let imgCount=1
+    // setInterval(function(){ 
+    //     imgCount++
+    //     if(imgCount > 4){ imgCount=1 }
+    //     $("#personalPictureImg").attr("src","./Source/img/pagesource/profile/profile"+imgCount+".png")
+    //     console.log(imgCount)
+    // },1000)
 
 
     $(".mainContent>div").on("wheel DOMMouseScroll",function(event){
         let winheight=$(window).height()
-        winst=winHeight
+        winst=winheight
         console.log(winst)
         let E = event.originalEvent
        let delta = 0;
@@ -78,30 +95,33 @@ $(document).ready(function(){
 
 
     //skill
-    let circle= $(".circle").get(0)
-    console.log(circle.getTotalLength())
-
     $(window).scroll(function(){
         let winTop=$(window).scrollTop()
-        if(winTop >= $(".skill").offset().top ){
+        if(winTop >= $(".skill").offset().top && winTop <= winTop + $(".skill").height() ){
             $(".skill").addClass("on")
-            $(".designSkill>ul>li>figure").each(function(){
+        }
+        if($(".skill").hasClass("on")==true){
+            $(".skillContent ul>li>figure").each(function(){
                 let list = $(this)
                 let percent = $(this).find(".per").text()
                 let count = 0
-                let circle = $(this).find("circle")
+                let circle = $(this).find(".circle")
+                let circleLength= circle.get(0).getTotalLength()
                 
                 let timer = setInterval(function(){
                     count++
-                    list.find(".per").text(count+"%")
-                    circle.css("stroke-dashoffset",314-(314*(count/100)))
                     if(count>=percent){
+                        count=percent
                         clearInterval(timer)
                     }
+                    list.find(".per").text(count+"%")
+                    circle.css("stroke-dashoffset",circleLength-(circleLength*(count/100)))
                 },10)
             })
         }
     })
+
+
 
 
 
@@ -167,6 +187,11 @@ $(document).ready(function(){
                 bannerRotate($(this))
             })
         })
+    })
+
+    let bannerHeight= $(".movingStation").height()
+    fixedEffect(".fixedEffect",{
+        Length:(6000-bannerHeight)
     })
 
     //design 페이지

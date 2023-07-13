@@ -3,7 +3,6 @@ function fixedEffect(Tag,EffectOption){
 
     let winHeight= $(window).height() //브라우저의 높이
     let fixedDiv=$(Tag) // 태그
-    let fixedDivTop = fixedDiv.offset().top // 태그높이 
     let movingStaiton = $(".movingStation")
     let movingStaitonHeight = $(".movingStation").offset().top
     let actionDistanceLength= EffectOption.Length?EffectOption.Length:0
@@ -11,6 +10,7 @@ function fixedEffect(Tag,EffectOption){
     let WrapDistance=actionDistanceLength/trainLength
     // Fixed 동작길이 (Fixed시 스크롤 길이)
     $(window).scroll(function(){
+        let fixedDivTop = fixedDiv.offset().top // 태그높이 
         let wstop = $(window).scrollTop()
         let scrollDistance=wstop-fixedDivTop
          // fixed 지점에서부터의 스크롤길이

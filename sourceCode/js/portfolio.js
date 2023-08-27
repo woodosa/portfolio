@@ -7,6 +7,7 @@ $(document).ready(function(){
     // let introOut=setTimeout(function(){
     //     $(".introAni").css("display","none")
     // }, 5000);
+
     $(document).ready(function() {
         $("a.anchorLink").anchorAnimate()
     });
@@ -31,7 +32,7 @@ $(document).ready(function(){
                   return false;
             })
         })
-    }
+    }// 부드럽게 이동하는 플러그인
 
     $(".btn").click(function(){
         $("#introSVG").addClass("on")
@@ -255,5 +256,19 @@ $(document).ready(function(){
     })
     $("#pageView").mouseout(function(){
         $(this).css("transform","translateY(0px)")
+    })
+
+
+    //redesign 페이지
+
+    $(".redesignPlanning").click(function(){
+        $(".redesignPopup").addClass("on")
+    })
+    $(".blackBG").on("wheel DOMMouseScroll",function(e){
+        e.preventDefault()
+        return false;
+    })
+    $(".popupEscbtn").click(function(){
+        $(".redesignPopup").removeClass("on")
     })
 })

@@ -18,16 +18,18 @@ $(document).ready(function () {
             $("header").removeClass("on")
         }
 
+        let eq1=$(".heritage_wrap").offset().top
+        let eq2=$(".otherbrand").offset().top
 
         if (winScrollSet > 0) {
             $(".main_controler>ul>li").removeClass("on")
             $(".main_controler>ul>li").eq(0).addClass("on")
         }
-        if (winScrollSet > 3129.85) {
+        if (winScrollSet > eq1) {
             $(".main_controler>ul>li").removeClass("on")
             $(".main_controler>ul>li").eq(1).addClass("on")
 
-        } if (winScrollSet > 5129.85) {
+        } if (winScrollSet >eq2) {
             $(".main_controler>ul>li").removeClass("on")
             $(".main_controler>ul>li").eq(2).addClass("on")
 

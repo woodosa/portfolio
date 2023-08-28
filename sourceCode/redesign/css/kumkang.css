@@ -198,8 +198,15 @@ header.on{
     height: 600px;
     margin: 150px auto;
 }
+.menubottom.on>ul{
+    width: 740px;
+    height: 600px;
+    margin: 150px auto;
+    display: none;
+}
 .menubottom>ul>li{
     cursor: pointer;
+    width: 200px;
     height: 80px;
     /* overflow: hidden; */
     margin-left: 30px;
@@ -259,7 +266,46 @@ header.on{
     pointer-events: auto;
     
 }
-
+.downBtn{
+    position: absolute;
+    bottom: 10%;
+    margin-left: 50px;
+    display: block;
+    border-top:3px solid #D7C08E ;
+    border-right: 3px solid #D7C08E;
+    width: 30px;
+    height: 30px;
+    transform: rotate(135deg);
+    cursor: pointer;
+    transition: transform 0.7s ease 0s;
+}
+.downBtn.on{
+    transform: rotate(-45deg);
+}
+.extraWrap{
+    display: none;
+    opacity: 0;
+    transition: opacity 0.7s ease 0s;
+    cursor: pointer;
+    pointer-events: none;
+    
+}
+.extraWrap.on{
+    display: block;
+    pointer-events: auto;
+    opacity: 1;
+}
+.extraWrap>ul>li{
+    cursor: pointer;
+    height: 80px;
+    /* overflow: hidden; */
+    margin-left: 30px;
+    font-size: 28px;
+    color: #D7C08E;
+    font-weight: 400;
+    margin-top: 50px;
+    text-transform:capitalize;
+}
 .menubottom>ul>li.on>ul>li:hover{
     color:#ddd
 }

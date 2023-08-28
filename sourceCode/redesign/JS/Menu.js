@@ -55,4 +55,25 @@ $(document).ready(function(){
         }
         })  
     }
+    $(".downBtn").click(function(){
+        if($(this).hasClass("on")==true){
+            $(".extraWrap").removeClass("on")
+            $(".menubottom").removeClass("on")
+            $(this).removeClass("on")
+        }else{
+        $(".extraWrap").addClass("on")
+        $(".menubottom").addClass("on")
+        $(this).addClass("on")
+        }
+    })
+    $(window).scroll(function () {
+        let winst = $(window).scrollTop() // 스크롤바 위에서 얼만큼 내려왔는지 계산
+        let winHeight = $(window).height() * 0.65
+        let winScrollSet = winst + winHeight
+        if (winScrollSet > 1500) {
+            $("header").addClass("on")
+        } else {
+            $("header").removeClass("on")
+        }
+    })
 })
